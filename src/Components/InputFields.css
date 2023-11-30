@@ -40,6 +40,11 @@ h4 {
   color: #555;
 }
 
+.wrap form div span {
+  font-weight: bold;
+  color: #555;
+}
+
 .wrap form div input,
 .wrap form div textarea {
   width: 78%;
@@ -94,7 +99,7 @@ button {
   border-radius: 5px;
   background: #32578e;
   color: #fff;
-  /* font-weight: bold; */
+  font-weight: bold;
   cursor: pointer;
 }
 

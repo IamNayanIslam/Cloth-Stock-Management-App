@@ -14,8 +14,20 @@ export default function InputField() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
     const inputElements = [...event.target.elements];
     const product = {};
+
+    /* const sizeRadioButtons = inputElements.filter(
+      (element) => element.type === "radio" && element.name === "size"
+    );
+
+    const isSizeSelected = sizeRadioButtons.some((button) => button.checked);
+
+    if (!isSizeSelected) {
+      return alert("Please select a size!");
+    } */
+
     inputElements.forEach((element) => {
       if (element.type === "radio" && !element.checked) {
         return;
@@ -25,6 +37,10 @@ export default function InputField() {
       }
 
       product[element.name] = element.value;
+      element.value = "";
+      if (element.type === "radio") {
+        element.checked = false;
+      }
     });
 
     for (const item of products) {
@@ -46,11 +62,33 @@ export default function InputField() {
           <form action="" className="inputFields" onSubmit={handleSubmit}>
             <div className="id">
               <label htmlFor="id">Cloth Id:</label>
-              <input type="text" name="id" className="clothId" required />
+              <input
+                type="text"
+                name="id"
+                className="clothId"
+                autoComplete="off"
+                required
+              />
             </div>
             <div className="name">
               <label htmlFor="name">Cloth Name:</label>
-              <input type="text" name="name" className="clothName" required />
+              <input
+                type="text"
+                name="name"
+                className="clothName"
+                pattern="^[a-zA-Z]+$"
+                /* onInvalid={(e) => {
+                  e.target.setCustomValidity(
+                    "Cloth Name can not contain numbers!"
+                  );
+                }}
+                onInput={(e) => {
+                  e.target.setCustomValidity("");
+                }} */
+                title="Cloth Name Can not contain numbers!"
+                autoComplete="off"
+                required
+              />
             </div>
             <div className="price">
               <label htmlFor="price">Cloth Price:</label>
@@ -58,6 +96,7 @@ export default function InputField() {
                 type="number"
                 name="price"
                 className="clothPrice"
+                autoComplete="off"
                 min="250"
                 max="3000"
                 required
@@ -69,8 +108,9 @@ export default function InputField() {
                 type="number"
                 name="quantity"
                 className="clothQuantity"
+                autoComplete="off"
                 min="1"
-                max="250"
+                max="500"
                 required
               />
             </div>
@@ -82,6 +122,7 @@ export default function InputField() {
                 cols="30"
                 rows="10"
                 maxLength={30}
+                autoComplete="off"
                 required
               ></textarea>
             </div>
@@ -90,6 +131,9 @@ export default function InputField() {
                 <label htmlFor="color">
                   Cloth Color:
                   <select name="color" id="color" required>
+                    <option value="" selected disabled>
+                      Color
+                    </option>
                     <option value="Red">Red</option>
                     <option value="Green">Green</option>
                     <option value="Blue">Blue</option>
@@ -99,12 +143,13 @@ export default function InputField() {
               <div className="size">
                 <span className="mr-10">Cloth Size:</span>
 
-                <input type="radio" name="size" id="m" value="M" />
+                <input required type="radio" name="size" id="m" value="M" />
                 <label htmlFor="m">M</label>
-                <input type="radio" name="size" id="xl" value="XL" />
-                <label htmlFor="xl">XL</label>
-                <input type="radio" name="size" id="l" value="L" />
+
+                <input required type="radio" name="size" id="l" value="L" />
                 <label htmlFor="l">L</label>
+                <input required type="radio" name="size" id="xl" value="XL" />
+                <label htmlFor="xl">XL</label>
               </div>
             </div>
             <button type="submit">Add Cloth</button>
