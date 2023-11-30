@@ -167,11 +167,12 @@ table tbody tr td.del {
   font-size: 14px;
   font-weight: normal;
   cursor: pointer;
-  transition: 0.3s ease all;
+  transition: 0.5s ease all;
 }
 
 table tbody tr td.del:hover {
-  scale: calc(1.4);
+  scale: calc(1.1);
+  rotate: 180deg;
 }
 
 button.btn {
