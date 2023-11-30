@@ -1,0 +1,78 @@
+table {
+  width: 100%;
+  /* padding: 10px; */
+  margin-top: 50px;
+  margin-bottom: 10px;
+  /* border-radius: 10px; */
+  /* background: #32578e; */
+  /* border-bottom: 1px solid #8a8a8a; */
+}
+
+table tr {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  align-items: center;
+  text-align: center;
+}
+
+table thead tr {
+  background: #32578e;
+  color: #fff;
+  /* border-radius: 10px 10px 0 0; */
+  padding: 10px 0px;
+}
+
+table tbody tr {
+  padding: 6px 0px;
+  border-bottom: 1px solid #8a8a8a;
+}
+
+table tbody tr:nth-child(even) {
+  background: #f4f4f4;
+}
+
+table tbody tr:nth-child(even):hover {
+  background: #d8d8d8;
+}
+
+table tbody tr:nth-child(odd) {
+  background: #fefefe;
+}
+
+table tbody tr:nth-child(odd):hover {
+  background: #e7e2e2;
+}
+
+table tbody tr td.del {
+  color: #f44336;
+  font-size: 14px;
+  font-weight: normal;
+  cursor: pointer;
+  transition: 0.3s ease all;
+}
+
+table tbody tr td.del:hover {
+  scale: calc(1.4);
+}
+
+button.btn {
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background: #f44336;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.5s ease all;
+}
+
+button.btn:hover {
+  background: #ca1d11;
+}
