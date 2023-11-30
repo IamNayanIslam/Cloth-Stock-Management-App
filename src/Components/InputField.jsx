@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ImCross } from "react-icons/im";
 import { CgRemove } from "react-icons/cg";
 import TableOfContents from "./TableOfContents";
-import "./inputFields.css";
+import "./InputFields.css";
 import getData from "../Utilities/getDataFromLocalStorage";
 
 export default function InputField() {
